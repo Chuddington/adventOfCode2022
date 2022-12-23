@@ -2,5 +2,8 @@ package com.github.chuddington.adventofcode.twentytwentytwo.dayone
 
 data class Calories(private val items: Iterable<Int>) {
 
-    fun total(): Int = items.fold(0) { a, b -> a + b }
+    val total: Int = items.sum()
+
+    override fun toString(): String =
+        "Calories(total=$total, items=$items)"
 }

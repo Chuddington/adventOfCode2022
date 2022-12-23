@@ -19,7 +19,7 @@ internal class CaloriesTest {
 
         assertEquals(
             expected,
-            calories.total()
+            calories.total
         )
     }
 

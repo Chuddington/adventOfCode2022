@@ -26,7 +26,7 @@ internal class InputReaderTest {
 
         val scanner = FileInputReader()
 
-        val actual = scanner.readInput("dayone/Day01_test.txt")
+        val actual = scanner.readInput("dayone/exampleInput.txt")
 
         Assertions.assertEquals(
             expected,
