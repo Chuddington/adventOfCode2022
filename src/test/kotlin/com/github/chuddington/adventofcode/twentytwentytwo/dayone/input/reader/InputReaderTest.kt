@@ -1,6 +1,6 @@
-package com.github.chuddington.adventofcode.twentytwentytwo.dayone.input
+package com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.reader
 
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 internal class InputReaderTest {
@@ -28,7 +28,7 @@ internal class InputReaderTest {
 
         val actual = scanner.readInput("dayone/Day01_test.txt")
 
-        assertEquals(
+        Assertions.assertEquals(
             expected,
             actual
         ) {

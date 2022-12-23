@@ -1,4 +1,4 @@
-package com.github.chuddington.adventofcode.twentytwentytwo.dayone.input
+package com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.reader
 
 class FileInputReader : InputReader {
 
