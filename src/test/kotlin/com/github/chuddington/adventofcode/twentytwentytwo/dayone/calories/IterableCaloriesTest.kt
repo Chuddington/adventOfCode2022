@@ -1,13 +1,13 @@
-package com.github.chuddington.adventofcode.twentytwentytwo.dayone
+package com.github.chuddington.adventofcode.twentytwentytwo.dayone.calories
 
+import com.github.chuddington.adventofcode.twentytwentytwo.dayone.calories.IterableCalories
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-internal class CaloriesTest {
+internal class IterableCaloriesTest {
 
     @ParameterizedTest(name = "{index}: {1} totals to {0}")
     @MethodSource("setupTotalCaloriesInputs")
@@ -15,7 +15,7 @@ internal class CaloriesTest {
         expected: Int,
         caloriesList: List<Int>
     ) {
-        val calories = Calories(caloriesList)
+        val calories = IterableCalories(caloriesList)
 
         assertEquals(
             expected,

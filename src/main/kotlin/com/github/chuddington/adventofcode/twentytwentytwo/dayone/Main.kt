@@ -1,29 +1,37 @@
 package com.github.chuddington.adventofcode.twentytwentytwo.dayone
 
+import com.github.chuddington.adventofcode.twentytwentytwo.dayone.calories.Calories
 import com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.reader.FileInputReader
 import com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.splitter.LineSplitter
 import com.github.chuddington.adventofcode.twentytwentytwo.dayone.transformer.FromInputListToCalories
 
 fun main() {
-    fun part1() {
-        val inputReader = FileInputReader()
-        val fileContents = inputReader.readInput("dayone/puzzleInput.txt")
-        val groupedContent = LineSplitter(separator = "").split(fileContents)
-        val caloriesList = FromInputListToCalories().transform(groupedContent)
-
-        caloriesList.forEachIndexed { index, calories ->
-            println("Elf $index holds ${calories.total} total calories.")
-        }
+    fun part1(caloriesList: List<Calories>) {
 
         val maxCalories = caloriesList.maxBy(Calories::total)
         val maxCaloriesIndex = caloriesList.indexOf(maxCalories)
 
-        println("\n\nElf $maxCaloriesIndex has the most calories: $maxCalories")
+        println("Elf $maxCaloriesIndex has the most calories: $maxCalories")
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    fun part2(caloriesList: List<Calories>) {
+
+        val topThreeCalories = caloriesList
+            .sortedByDescending(Calories::total)
+            .subList(0, 3)
+
+        val totalThreeCalories = topThreeCalories.map(Calories::total).sum()
+
+        println("Top 3 Calories: $topThreeCalories")
+        println("Total calories: $totalThreeCalories")
     }
 
-    part1()
+    val inputReader = FileInputReader()
+    val fileContents = inputReader.readInput("dayone/puzzleInput.txt")
+    val groupedContent = LineSplitter(separator = "").split(fileContents)
+    val caloriesList = FromInputListToCalories().transform(groupedContent)
+
+    part1(caloriesList)
+    println("\n")
+    part2(caloriesList)
 }

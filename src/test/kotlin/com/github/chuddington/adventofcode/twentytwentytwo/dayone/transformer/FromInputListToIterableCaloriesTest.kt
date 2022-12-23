@@ -1,10 +1,10 @@
 package com.github.chuddington.adventofcode.twentytwentytwo.dayone.transformer
 
-import com.github.chuddington.adventofcode.twentytwentytwo.dayone.Calories
+import com.github.chuddington.adventofcode.twentytwentytwo.dayone.calories.IterableCalories
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-internal class FromInputListToCaloriesTest {
+internal class FromInputListToIterableCaloriesTest {
 
     @Test
     fun `transforms into Calories objects`() {
@@ -14,8 +14,8 @@ internal class FromInputListToCaloriesTest {
         )
 
         val expected = listOf(
-            Calories(listOf(1000, 2000)),
-            Calories(listOf(3000))
+            IterableCalories(listOf(1000, 2000)),
+            IterableCalories(listOf(3000))
         )
         val actual = FromInputListToCalories().transform(input)
 
