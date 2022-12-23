@@ -1,15 +1,15 @@
 package com.github.chuddington.adventofcode.twentytwentytwo.daytwo.input.splitter
 
 import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.Choice
-import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.Turn
-import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.Turns
+import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.turns.MultiChoiceTurn
+import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.turns.Turns
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-internal class LineSplitterTest {
+internal class MultiChoiceSplitterTest {
 
     @ParameterizedTest(name = "{index}: {0} -> ({1}, {2})")
     @MethodSource("setupTurnData")
@@ -20,14 +20,14 @@ internal class LineSplitterTest {
     ) {
         val expected = Turns(
             listOf(
-                Turn(
+                MultiChoiceTurn(
                     opponent = opponentChoice,
                     user = userChoice
                 )
             )
         )
 
-        val actual = LineSplitter(" ").split(listOf(inputString))
+        val actual = MultiChoiceSplitter().split(listOf(inputString))
 
         assertEquals(
             expected,

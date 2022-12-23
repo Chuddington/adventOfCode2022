@@ -1,12 +1,14 @@
-package com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors
+package com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.turns
 
-data class Turn(
+import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.Choice
+import com.github.chuddington.adventofcode.twentytwentytwo.daytwo.rockpaperscissors.Result
+
+data class MultiChoiceTurn(
     private val opponent: Choice,
     private val user: Choice
-) {
+) : Turn {
 
-    val opponentResult: Result = resultMap[user]?.get(opponent)!!
-    val userResult: Result = resultMap[opponent]?.get(user)!!
+    override val userResultValue: Int = resultMap[opponent]?.get(user)!!.value
 
     companion object {
         @JvmStatic
