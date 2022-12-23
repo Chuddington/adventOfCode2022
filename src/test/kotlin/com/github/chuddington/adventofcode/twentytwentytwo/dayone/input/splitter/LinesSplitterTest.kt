@@ -3,7 +3,7 @@ package com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.splitte
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-internal class LineSplitterTest {
+internal class LinesSplitterTest {
 
     private val separator = ""
     private val oneK = "1000"
@@ -14,7 +14,7 @@ internal class LineSplitterTest {
     fun `no splitting required`() {
         val input = listOf(oneK, twoK, threeK)
         val expected = listOf(input)
-        val actual = LineSplitter(separator).split(input)
+        val actual = LinesSplitter(separator).split(input)
 
         assertEquals(expected, actual)
     }
@@ -28,7 +28,7 @@ internal class LineSplitterTest {
             listOf("3000")
         )
 
-        val actual = LineSplitter(separator).split(
+        val actual = LinesSplitter(separator).split(
             listOf("1000", "2000", separator, "3000")
         )
 

@@ -1,6 +1,6 @@
 package com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.splitter
 
-class LineSplitter(private val separator: String) {
+class LinesSplitter(private val separator: String) {
 
     fun split(content: List<String>): List<List<String>> {
         val result = mutableListOf<List<String>>()
