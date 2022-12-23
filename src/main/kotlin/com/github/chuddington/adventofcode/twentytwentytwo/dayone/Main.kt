@@ -1,3 +1,5 @@
+package com.github.chuddington.adventofcode.twentytwentytwo.dayone
+
 fun main() {
     fun part1(input: List<String>): Int {
         return input.size

@@ -1,3 +1,5 @@
+package com.github.chuddington.adventofcode.twentytwentytwo.dayone
+
 import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
