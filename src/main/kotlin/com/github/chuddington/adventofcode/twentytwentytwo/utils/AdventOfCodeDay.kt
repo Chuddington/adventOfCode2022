@@ -1,6 +1,8 @@
 package com.github.chuddington.adventofcode.twentytwentytwo.utils
 
-interface AdventOfCodeDay {
+import com.github.chuddington.adventofcode.twentytwentytwo.utils.logging.LogTagProvider
+
+interface AdventOfCodeDay : LogTagProvider {
     val resourceFolder: String
         get() = this::class.java.simpleName.lowercase()
 

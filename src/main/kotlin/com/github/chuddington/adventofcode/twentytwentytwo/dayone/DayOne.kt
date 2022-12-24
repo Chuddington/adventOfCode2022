@@ -4,8 +4,10 @@ import com.github.chuddington.adventofcode.twentytwentytwo.dayone.calories.Calor
 import com.github.chuddington.adventofcode.twentytwentytwo.dayone.input.splitter.LinesSplitter
 import com.github.chuddington.adventofcode.twentytwentytwo.dayone.transformer.FromInputListToCalories
 import com.github.chuddington.adventofcode.twentytwentytwo.utils.AdventOfCodeDay
+import com.github.chuddington.adventofcode.twentytwentytwo.utils.logging.LogTagProvider
+import com.github.chuddington.adventofcode.twentytwentytwo.utils.logging.Logger
 
-class DayOne : AdventOfCodeDay {
+class DayOne(private val logger: Logger) : AdventOfCodeDay {
 
     override fun part1(fileContents: List<String>) {
         val groupedContent = LinesSplitter(separator = "").split(fileContents)
@@ -14,7 +16,10 @@ class DayOne : AdventOfCodeDay {
         val maxCalories = caloriesList.maxBy(Calories::total)
         val maxCaloriesIndex = caloriesList.indexOf(maxCalories)
 
-        println("Elf $maxCaloriesIndex has the most calories: $maxCalories")
+        logger.info(
+            logTag,
+            "Elf $maxCaloriesIndex has the most calories: $maxCalories"
+        )
     }
 
     override fun part2(fileContents: List<String>) {
@@ -27,7 +32,14 @@ class DayOne : AdventOfCodeDay {
 
         val totalThreeCalories = topThreeCalories.map(Calories::total).sum()
 
-        println("Top 3 Calories: $topThreeCalories")
-        println("Total calories: $totalThreeCalories")
+        logger.debug(
+            logTag,
+            "Top 3 Calories: $topThreeCalories"
+        )
+
+        logger.info(
+            logTag,
+            "Total calories: $totalThreeCalories"
+        )
     }
 }

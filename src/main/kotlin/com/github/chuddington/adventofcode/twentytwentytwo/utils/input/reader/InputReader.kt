@@ -1,5 +1,7 @@
 package com.github.chuddington.adventofcode.twentytwentytwo.utils.input.reader
 
-interface InputReader {
+import com.github.chuddington.adventofcode.twentytwentytwo.utils.logging.LogTagProvider
+
+interface InputReader : LogTagProvider {
     fun readInput(resourceName: String): List<String>
 }
